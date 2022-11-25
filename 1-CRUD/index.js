@@ -4,6 +4,8 @@ const app = express()
 require('dotenv').config()
 const port = 3000
 const dbkey= process.env.dbkey
+
+app.use(express.json())
 //
 const {getAllUser,createUser,deleteUser} = require('./controller/user')
 //
@@ -14,7 +16,11 @@ app.get('/', (req, res) => {
 //
 app.get('/get', getAllUser)
 app.post('/create',createUser)
-app.delete('/delete',deleteUser)
+app.delete('/delete/:id',deleteUser)
+app.post('/test',(req,res)=>{
+  res.send(req.body)
+  console.log(req.body)
+})
 
 //
 //app.listen(port, () => {
