@@ -5,7 +5,7 @@ require('dotenv').config()
 const port = 3000
 const dbkey= process.env.dbkey
 //
-const {getAllUser,createUser} = require('./controller/user')
+const {getAllUser,createUser,deleteUser} = require('./controller/user')
 //
 
 app.get('/', (req, res) => {
@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 //
 app.get('/get', getAllUser)
 app.post('/create',createUser)
+app.delete('/delete',deleteUser)
 
 //
 //app.listen(port, () => {
