@@ -1,8 +1,9 @@
 const express = require('express')
 const connectDB = require('./db/connect')
 const app = express()
+require('dotenv').config()
 const port = 3000
-const dbkey= 'mongodb+srv://django:testing123@cluster0.7ncug.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const dbkey= process.env.dbkey
 //
 const {getAllUser,createUser} = require('./controller/user')
 //
@@ -24,7 +25,7 @@ const start = async ()=>{
 
     await connectDB(dbkey)
     app.listen(port,()=>{
-    console.log(`Example app listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
     })   
   } catch (error) {
     console.log(error)
