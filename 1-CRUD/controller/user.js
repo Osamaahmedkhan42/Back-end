@@ -42,10 +42,10 @@ const deleteUser = async (req,res)=>{
 //update user
 const updateUser =async (req,res)=>{
     try {
-        //const {id:userID} = req.params
+        const {id:userID} = req.params
         const user = await User.findOneAndUpdate({_id:userID},req.body,{
             new:true,
-            runValidators:true,
+            //runValidators:true,
         })
         if(!user){
             return res.status(404).json({msg:`No user with ID : ${userID}`})

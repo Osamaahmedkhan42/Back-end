@@ -7,7 +7,7 @@ const dbkey= process.env.dbkey
 
 app.use(express.json())
 //
-const {getAllUser,createUser,deleteUser} = require('./controller/user')
+const {getAllUser,createUser,deleteUser,updateUser} = require('./controller/user')
 //
 
 app.get('/', (req, res) => {
@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 app.get('/get', getAllUser)
 app.post('/create',createUser)
 app.delete('/delete/:id',deleteUser)
+app.patch('/update/:id',updateUser)
 app.post('/test',(req,res)=>{
   res.send(req.body)
   console.log(req.body)
