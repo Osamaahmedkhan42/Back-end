@@ -55,11 +55,29 @@ const updateUser =async (req,res)=>{
         res.status(500).json({msg : error})
     }
 }
+//deleteMany
+const deleteMany = async (req,res) =>{
+    console.log("deletemany")
+    try {
+        const {name:userName} = req.params
+        console.log(req.params)
+        const user = await User.deleteMany({name:userName})
+        if(!user){
+            return res.status(404).json({msg:`No user with name : ${userName}`})
+        }
+       console.log('sucess')
+       res.status(200).json({user})
+   } catch (error) {
+       //console.log("error here")
+       res.status(500).json({msg:error})
+   }
+}
 
 module.exports={
     getAllUser,
     createUser,
     deleteUser,
     updateUser,
+    deleteMany
 
 }

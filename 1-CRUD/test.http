@@ -1,8 +1,1 @@
-PATCH   http://localhost:3000/update/6380ca881ca61cec6465549b
-content-type: application/json
-
-{
-    "name" : "Arsalan",
-    "email": " Dexter@ecorp.com ",
-    "password":"MrBean420"
-}
+GET   http://localhost:3000/deleteall/6380ca881ca61cec6465549d
